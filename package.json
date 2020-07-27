@@ -33,6 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postversion": "git push && git push --tags",
     "test": "react-scripts test",
     "test:ci": "CI=true yarn test",
     "lint": "eslint './src/**/*.{js,jsx}'",
