@@ -24,3 +24,6 @@ yarn-error.log*
 
 # editors & IDEs (vscode, etc.)
 /.vscode
+
+# auto release automation tool
+.env
