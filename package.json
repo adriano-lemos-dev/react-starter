@@ -33,7 +33,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postversion": "git push && git push --tags",
+    "version": "npm version `auto version` -m 'Bump version to: %s [skip ci]'",
+    "publish": "npm publish && git push --follow-tags --set-upstream origin $branch",
+    "release": "auto changelog && npm run version && npm run publish && auto release",
     "test": "react-scripts test",
     "test:ci": "CI=true yarn test",
     "lint": "eslint './src/**/*.{js,jsx}'",
@@ -54,13 +56,29 @@
     ]
   },
   "devDependencies": {
+    "@auto-it/all-contributors": "^9.49.4",
+    "@auto-it/conventional-commits": "^9.49.4",
+    "@auto-it/first-time-contributor": "^9.49.4",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^5.3.19",
     "@storybook/theming": "^5.3.19",
+    "all-contributors-cli": "^6.17.0",
+    "auto": "^9.49.4",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "conventional-commits",
+      "first-time-contributor",
+      "released"
+    ],
+    "baseBranch": "develop",
+    "onlyPublishWithReleaseLabel": true
   }
 }
