@@ -14,8 +14,12 @@
   "keywords": [
     "react",
     "create-react-app",
+    "cra-template",
     "template",
-    "prettier"
+    "prettier",
+    "storybook",
+    "material-ui",
+    "roboto"
   ],
   "files": [
     "template",
@@ -41,7 +45,10 @@
     "lint": "eslint './src/**/*.{js,jsx}'",
     "fix": "yarn lint --fix",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "clean-files": "rm -rf ./template/public ./template/src ./template/.storybook && rm -f ./template/.eslintrc ./template/.prettierrc",
+    "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp -a ./.storybook/. template/.storybook && cp .eslintrc .prettierrc template/",
+    "prepublishOnly": "yarn clean-files && yarn copy-files"
   },
   "browserslist": {
     "production": [
