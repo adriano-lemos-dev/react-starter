@@ -37,9 +37,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "version": "npm version `auto version` -m 'Bump version to: %s [skip ci]'",
-    "publish": "npm publish && git push --follow-tags --set-upstream origin $branch",
-    "release": "auto changelog && npm run version && npm run publish && auto release",
     "test": "react-scripts test",
     "test:ci": "CI=true yarn test",
     "lint": "eslint './src/**/*.{js,jsx}'",
@@ -48,7 +45,7 @@
     "build-storybook": "build-storybook -s public",
     "clean-files": "rm -rf ./template/public ./template/src ./template/.storybook && rm -f ./template/.eslintrc ./template/.prettierrc",
     "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp -a ./.storybook/. template/.storybook && cp .eslintrc .prettierrc template/",
-    "prepublishOnly": "yarn clean-files && yarn copy-files"
+    "prepare-pub": "yarn clean-files && yarn copy-files"
   },
   "browserslist": {
     "production": [
